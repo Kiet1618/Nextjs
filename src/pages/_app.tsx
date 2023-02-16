@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import type { AppProps } from 'next/app';
 import { Provider as ReduxProvider } from "react-redux";
-
-import { store } from "@app/store";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { store, useAppSelector } from "@app/store";
+import ProviderApp from "./ProviderApp"
 import 'antd/dist/antd.css';
 
-const AppLayout = dynamic(() => import('../components/Layout'), { ssr: false });
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+
+export default function MyApp(props: AppProps) {
   return (
     <ReduxProvider store={store}>
-      <AppLayout>
-        <Head>
-          <title>NextJs Antdesign Typescript</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
-        <Component {...pageProps} />
-      </AppLayout>
+      <ProviderApp {...props} />
     </ReduxProvider>
-  );
+  )
 }

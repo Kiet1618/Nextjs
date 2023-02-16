@@ -3,16 +3,18 @@ import logger from 'redux-logger';
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import overviewReducer from "../pages/overview/redux/reducer";
+import loginReducer from "../pages/login/redux/reducer";
 export const store = configureStore({
   reducer: {
     overview: overviewReducer,
+    auth: loginReducer
   },
   middleware: (getDefaultMiddleware) => {
-		const middleware = getDefaultMiddleware();
-		if (process.env.NODE_ENV === "development") middleware.push(logger);
+    const middleware = getDefaultMiddleware();
+    if (process.env.NODE_ENV === "development") middleware.push(logger);
 
-		return middleware;
-	},
+    return middleware;
+  },
   devTools: process.env.NODE_ENV !== `production`,
 })
 

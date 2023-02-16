@@ -8,6 +8,8 @@ import {
   DesktopOutlined,
   DashboardOutlined,
   SettingOutlined,
+  WalletOutlined,
+  HomeOutlined
 } from '@ant-design/icons';
 
 import './Layout.css';
@@ -81,24 +83,25 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
           defaultOpenKeys={[pathsplit[1]]}
           mode="inline"
         >
-          <Item key="overview" icon={<DashboardOutlined />}>
+          <Item key="overview" icon={<HomeOutlined />}>
             <Link href="/overview">
               <a>Overview</a>
             </Link>
           </Item>
-          <Item key="menu1" icon={<DashboardOutlined />}>
-            <Link href="/menu1">
-              <a>Menu 1</a>
+
+          <Item key="wallet" icon={<WalletOutlined />}>
+            <Link href="/wallet">
+              <a>Wallet</a>
             </Link>
           </Item>
-          <SubMenu key="menu3" icon={<SettingOutlined />} title="Menu 3">
+          <SubMenu key="setting" icon={<SettingOutlined />} title="Setting">
             <Item key="submenu1">
-              <Link href="/menu3/submenu1">
+              <Link href="/setting/submenu1">
                 <a>Submenu 1</a>
               </Link>
             </Item>
             <Item key="submenu2">
-              <Link href="/menu3/submenu2">
+              <Link href="/setting/submenu2">
                 <a>Submenu 2</a>
               </Link>
             </Item>

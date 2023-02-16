@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 
-const redirectTo = '/overview';
+const redirectTo = '/';
 
 const Index = () => {
+
   if (typeof window !== 'undefined') {
     const router = useRouter();
     router.push(redirectTo);

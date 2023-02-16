@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-const redirectTo = '/';
+const redirectTo = '/login';
 
 const Index = () => {
 

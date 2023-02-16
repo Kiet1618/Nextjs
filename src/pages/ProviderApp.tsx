@@ -10,20 +10,20 @@ import { store, useAppSelector } from "@app/store";
 
 const AppLayout = dynamic(() => import('../components/Layout'), { ssr: false });
 
-
 export default function ProviderApp({ Component, pageProps }: AppProps) {
-  const [idToken, setIdToken] = useState(null);
   const router = useRouter();
   const loginState = useAppSelector(state => state.auth);
-  useEffect(() => {
-    if (loginState.token.data) {
-      router.push('/overview')
-    }
-    else {
-      router.push('/login')
-    }
-  }, [loginState])
+
+  // useEffect(() => {
+  //   if (loginState.token.data) {
+  //     router.push('/overview')
+  //   }
+  //   else {
+  //     router.push('/login')
+  //   }
+  // }, [loginState])
   if (router.pathname != '/login') {
+    console.log("aaa");
     return (
       <AppLayout>
         <Head>

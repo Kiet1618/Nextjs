@@ -12,21 +12,17 @@ export default function App() {
   return (
     <div id="profile-page">
       <Card
-        style={{ width: 300 }}
+        style={{ width: '600px', textAlign: 'center' }}
         cover={
           <img
+            style={{ borderRadius: '50%', width: '200px', marginLeft: '200px', marginTop: '50px' }}
             alt="image"
             src={session.user.image}
           />
         }
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
       >
         <Meta
-          avatar={<Avatar src={session.user.image} />}
+          //   avatar={<Avatar src={session.user.image} />}
           title={session.user.name}
           description={session.user.email}
         />

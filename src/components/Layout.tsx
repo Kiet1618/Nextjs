@@ -72,7 +72,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         collapsed={isCollapsed}
         onCollapse={onChangeIsCollapsed}
       >
-        <Link href="/menu1">
+        <Link href="/overview">
           <a>
             <div className="App-logo" />
           </a>

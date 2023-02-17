@@ -1,11 +1,14 @@
-import { Button } from 'antd';
+import { Button, Empty } from 'antd';
 import React, { useState } from 'react';
 import { testFunc } from './redux/actions';
 import { useAppDispatch, useAppSelector } from '@app/store';
-
+import { useSession } from 'next-auth/react';
 export default function Overview() {
   const dispatch = useAppDispatch();
+  const { data: session } = useSession();
+
   const state = useAppSelector(state => state.overview);
+  console.log();
   return (
     <div>
       <p>Count: {state.test.data}</p>
@@ -13,6 +16,10 @@ export default function Overview() {
         dispatch(testFunc({}));
       }} loading={state.test.loading}>Test Redux Func
       </Button>
+      <div><b>ID token:</b> {session.id_token || ""}</div>
+      <div> <b>email:</b> {session.user.email}</div>
+      <Empty>
+      </Empty>
     </div>
   )
 }

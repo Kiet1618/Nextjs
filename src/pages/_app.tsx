@@ -8,13 +8,17 @@ import { useRouter } from 'next/router';
 import { store, useAppSelector } from "@app/store";
 import ProviderApp from "./ProviderApp"
 import 'antd/dist/antd.css';
+import { SessionProvider } from 'next-auth/react';
+import { Session } from 'next-auth';
 
 
 
-export default function MyApp(props: AppProps) {
+export default function MyApp(props: AppProps & { session: Session }) {
   return (
     <ReduxProvider store={store}>
-      <ProviderApp {...props} />
+      <SessionProvider session={props.session}>
+        <ProviderApp {...props} />
+      </SessionProvider>
     </ReduxProvider>
   )
 }

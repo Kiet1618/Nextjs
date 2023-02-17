@@ -2,39 +2,44 @@ import { Input } from 'antd';
 import React, { useState } from 'react';
 import GoogleProvider from "next-auth/providers/google";
 import { useAppDispatch } from '@app/store';
-import { setToken } from './redux/actions';
 import { Button } from 'antd';
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react';
+import {
+    GooglePlusOutlined,
+    FacebookOutlined,
+    GithubOutlined,
+    MoreOutlined
+} from '@ant-design/icons';
+import './login.css';
+
 
 export default function App() {
-    const dispatch = useAppDispatch();
-    const [idToken, setIdToken] = useState('');
+    const { data: session } = useSession();
+
     const handleSubmit = async (event) => {
-        setIdToken("1")
-        dispatch(setToken("12213"));
 
         event.preventDefault();
         const result = await signIn("google", {
             callbackUrl: `${window.location.origin}/overview`,
             redirect: false,
-        });
-
-        if (result?.url) {
-            window.location.href = result.url;
-        } else {
-            console.error("Failed to initiate Google sign-in flow");
-        }
-
+        })
     };
 
 
     return (
-        <div>
-            <div>Login Google</div>
-            <Input.Group compact>
-                <Input style={{ width: 200 }} />
-                <Button type="primary" onClick={handleSubmit}>Submit</Button>
-            </Input.Group>
+        <div className='login-form' >
+            <div className='input-login'>
+                <Button className='icon-login' type="default" size='large' shape='circle' icon={<GooglePlusOutlined />} onClick={handleSubmit}></Button>
+                <Button className='icon-login' type="default" size='large' shape='circle' icon={<FacebookOutlined />} ></Button>
+                <Button className='icon-login' type="default" size='large' shape='circle' icon={<GithubOutlined />} ></Button>
+                <Button className='icon-login' type="default" size='large' shape='circle' icon={<MoreOutlined />} ></Button>
+
+                <Input.Group compact>
+                    <Input style={{ width: 300 }} /> <br></br>
+                    <Button style={{ width: 300 }} type="primary" >Login with email</Button>
+
+                </Input.Group>
+            </div>
         </div>
     )
 }

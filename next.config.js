@@ -1,6 +1,5 @@
 const withPlugins = require('next-compose-plugins');
 const withCss = require('@zeit/next-css');
-
 const nextConfig = {
   webpack5: false,
   webpack: (config, { isServer }) => {
@@ -24,6 +23,16 @@ const nextConfig = {
         use: 'null-loader',
       });
     }
+    config.module.rules.push({
+      test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          name: '[name].[ext]',
+        },
+      },
+    });
     return config;
   },
 };

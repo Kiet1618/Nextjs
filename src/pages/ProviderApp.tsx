@@ -6,24 +6,35 @@ import { Provider as ReduxProvider } from "react-redux";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { store, useAppSelector } from "@app/store";
-
+import { useSession } from 'next-auth/react';
 
 const AppLayout = dynamic(() => import('../components/Layout'), { ssr: false });
 
 export default function ProviderApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const loginState = useAppSelector(state => state.auth);
+  const { data: session } = useSession();
 
-  // useEffect(() => {
-  //   if (loginState.token.data) {
-  //     router.push('/overview')
-  //   }
-  //   else {
-  //     router.push('/login')
-  //   }
-  // }, [loginState])
+  useEffect(() => {
+    if (session) {
+      if (router.pathname === '/wallet') {
+        router.push('/wallet')
+      }
+      else if (router.pathname.includes('/overview')) {
+        router.push('/overview')
+      }
+      else if (router.pathname.includes('/setting/profile')) {
+        router.push('/setting/profile')
+      }
+      else {
+        router.push('/overview')
+      }
+
+    }
+    else {
+      router.push('/')
+    }
+  }, [session])
   if (router.pathname != '/login') {
-    console.log("aaa");
     return (
       <AppLayout>
         <Head>

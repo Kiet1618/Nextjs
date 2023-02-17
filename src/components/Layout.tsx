@@ -1,8 +1,9 @@
 import React, { useState, FunctionComponent } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import Link from 'next/link';
 import { withRouter, NextRouter } from 'next/router';
 import { WithRouterProps } from 'next/dist/client/with-router';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 import {
   DesktopOutlined,
@@ -55,7 +56,7 @@ function routesMaker(pathsplit: string[]) {
 
 const AppLayout = (props: React.PropsWithChildren<Props>) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-
+  const { data: session } = useSession()
   const onChangeIsCollapsed = (isCollapsed: boolean) => {
     setIsCollapsed(isCollapsed);
   };
@@ -95,14 +96,14 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
             </Link>
           </Item>
           <SubMenu key="setting" icon={<SettingOutlined />} title="Setting">
-            <Item key="submenu1">
-              <Link href="/setting/submenu1">
-                <a>Submenu 1</a>
+            <Item key="profile">
+              <Link href="/setting/profile">
+                <a>Profile</a>
               </Link>
             </Item>
-            <Item key="submenu2">
-              <Link href="/setting/submenu2">
-                <a>Submenu 2</a>
+            <Item key="logout">
+              <Link href="/setting/logout">
+                <a onClick={() => signOut()}>Log out</a>
               </Link>
             </Item>
           </SubMenu>

@@ -10,7 +10,7 @@ export default function Overview() {
   const state = useAppSelector(state => state.overview);
   console.log();
   return (
-    <div>
+    <div className='overview-page' style={{ textAlign: 'left' }}>
       <p>Count: {state.test.data}</p>
       <Button type='primary' onClick={() => {
         dispatch(testFunc({}));

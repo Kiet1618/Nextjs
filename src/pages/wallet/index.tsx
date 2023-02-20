@@ -6,11 +6,17 @@ import {
   Button
 } from 'antd';
 const { Option } = Select;
-import './wallet.css';
+import styled from 'styled-components';
+const Tranfer = styled.form`
+    border: solid 0.5px;
+    width: 750px;
+    height: 40vh;
+    padding: 50px;
+`;
 export default function App() {
   return (
     <div>
-      <form className='tranfer-control'>
+      <Tranfer>
         <h2 >Tranfer</h2>
 
         <Input.Group compact>
@@ -25,7 +31,7 @@ export default function App() {
 
           <Button style={{ width: 90 }} type="primary" >Send</Button>
         </Input.Group>
-      </form>
+      </Tranfer>
     </div >
   )
 }

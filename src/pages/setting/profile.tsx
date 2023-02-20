@@ -3,14 +3,21 @@ import { Skeleton, Empty, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { useSession } from 'next-auth/react';
 
-
 const { Meta } = Card;
-import './profile.css';
+import styled from 'styled-components';
+const Profile = styled.div`
+       display: inline-block;
+    /* text-align: center; */
+    margin-left: 25%;
+    border: 2px solid #ccc;
+    height: 60vh;
+`;
 export default function App() {
+
   const { data: session } = useSession();
 
   return (
-    <div id="profile-page">
+    <Profile >
       <Card
         style={{ width: '600px', textAlign: 'center' }}
         cover={
@@ -22,12 +29,12 @@ export default function App() {
         }
       >
         <Meta
-          //   avatar={<Avatar src={session.user.image} />}
+          //avatar={<Avatar src={session.user.image} />}
           title={session.user.name}
           description={session.user.email}
         />
       </Card>
-    </div >
+    </Profile >
   )
 }
 

@@ -10,8 +10,20 @@ import {
     GithubOutlined,
     MoreOutlined
 } from '@ant-design/icons';
-import './login.css';
 
+import styled from 'styled-components';
+const Login = styled.div`
+    background-image: url(/home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+`;
+const IpnutLogin = styled.div`
+    text-align: center;
+    padding-top: 40vh;
+`;
 
 export default function App() {
     const { data: session } = useSession();
@@ -27,20 +39,20 @@ export default function App() {
 
 
     return (
-        <div className='login-form' >
-            <div className='input-login'>
-                <Button className='icon-login' type="default" size='large' shape='circle' icon={<GooglePlusOutlined />} onClick={handleSubmit}></Button>
-                <Button className='icon-login' type="default" size='large' shape='circle' icon={<FacebookOutlined />} ></Button>
-                <Button className='icon-login' type="default" size='large' shape='circle' icon={<GithubOutlined />} ></Button>
-                <Button className='icon-login' type="default" size='large' shape='circle' icon={<MoreOutlined />} ></Button>
+        <Login >
+            <IpnutLogin>
+                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<GooglePlusOutlined />} onClick={handleSubmit}></Button>
+                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<FacebookOutlined />} ></Button>
+                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<GithubOutlined />} ></Button>
+                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<MoreOutlined />} ></Button>
 
                 <Input.Group compact>
                     <Input style={{ width: 300 }} /> <br></br>
                     <Button style={{ width: 300 }} type="primary" >Login with email</Button>
 
                 </Input.Group>
-            </div>
-        </div>
+            </IpnutLogin>
+        </Login>
     )
 }
 

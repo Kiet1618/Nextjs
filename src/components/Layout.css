@@ -1,5 +1,6 @@
 .App-logo {
-  height: 50px;
-  background-image: url(/dwallet.png);
-  margin: 8px;
+  /* height: 50px; */
+  /* background-image: url(/dwallet.png); */
+  background-repeat: no-repeat;
+
 }

@@ -67,14 +67,16 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider
+      <Sider style={{ textAlign: 'center' }}
         collapsible
         collapsed={isCollapsed}
         onCollapse={onChangeIsCollapsed}
       >
-        <Link href="/overview">
+        <Link href="/overview" >
           <a>
             <div className="App-logo" />
+            <img src='/dwallet.png'></img>
+            <div>d-Wallet</div>
           </a>
         </Link>
         <Menu
@@ -95,9 +97,9 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
               <a>Wallet</a>
             </Link>
           </Item>
-          <SubMenu key="setting" icon={<SettingOutlined />} title="Setting">
-            <Item key="profile">
-              <Link href="/setting/profile">
+          <SubMenu key="setting" icon={<SettingOutlined />} title="Setting" >
+            <Item key="profile" >
+              <Link href="/setting/profile" >
                 <a>Profile</a>
               </Link>
             </Item>

@@ -13,7 +13,7 @@ import {
   HomeOutlined
 } from '@ant-design/icons';
 
-import './Layout.css';
+// import './Layout.css';
 
 const { SubMenu, Item } = Menu;
 const { Sider, Content } = Layout;
@@ -75,7 +75,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         <Link href="/overview" >
           <a>
             <div className="App-logo" />
-            <img src='/dwallet.png'></img>
+            <img style={{ marginTop: 5, marginBottom: 5 }} src='/dwallet.png'></img>
             <div>d-Wallet</div>
           </a>
         </Link>

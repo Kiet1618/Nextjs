@@ -76,6 +76,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
           <a>
             <div className="App-logo" />
             <img style={{ marginTop: 5, marginBottom: 5 }} src='/dwallet.png'></img>
+
             <div>d-Wallet</div>
           </a>
         </Link>

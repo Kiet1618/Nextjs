@@ -63,7 +63,7 @@ export default function App() {
     //slider
 
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         fade: true,
@@ -82,10 +82,10 @@ export default function App() {
             <IpnutLogin>
                 <img src="/logoLogin.png" style={{ marginBottom: 100 }} alt="" />
                 <br></br>
-                <Button style={{ margin: 10, width: 60, height: 60 }} type="default" size='large' shape='circle' icon={<img style={{ width: 50, height: 50 }} src='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'></img>} onClick={handleSubmit}></Button>
-                <Button style={{ margin: 10, width: 60, height: 60 }} type="default" size='large' shape='circle' icon={<FacebookOutlined />} ></Button>
-                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<GithubOutlined />} ></Button>
-                <Button style={{ margin: 10 }} type="default" size='large' shape='circle' icon={<MoreOutlined />} ></Button>
+                <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<img style={{ width: 40, height: 40 }} src='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'></img>} onClick={handleSubmit}></Button>
+                <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<img style={{ width: 30, height: 30 }} src='/facebookLogo.png'></img>}></Button>
+                <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<img style={{ width: 30, height: 30 }} src='/githubLogo.png'></img>} ></Button>
+                <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<MoreOutlined />} ></Button>
 
                 <Input.Group compact>
                     <Input style={{ width: 300, marginTop: 8, borderRadius: 5, textAlign: 'left', paddingLeft: 10, height: 40 }} /> <br></br>

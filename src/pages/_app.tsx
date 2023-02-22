@@ -17,7 +17,7 @@ export default function MyApp(props: AppProps & { session: Session }) {
   return (
     <ReduxProvider store={store}>
       <SessionProvider session={props.session}>
-        <ProviderApp {...props} />
+        <ProviderApp  {...props} />
       </SessionProvider>
     </ReduxProvider>
   )

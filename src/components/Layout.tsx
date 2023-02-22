@@ -1,13 +1,12 @@
 import React, { useState, FunctionComponent } from 'react';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
+import styled from "styled-components"
 import Link from 'next/link';
 import { withRouter, NextRouter } from 'next/router';
 import { WithRouterProps } from 'next/dist/client/with-router';
 import { useSession, signIn, signOut } from "next-auth/react"
 
 import {
-  DesktopOutlined,
-  DashboardOutlined,
   SettingOutlined,
   WalletOutlined,
   HomeOutlined
@@ -29,10 +28,10 @@ interface Props extends WithRouterProps {
 function itemRender(route: Router) {
   return route.path === 'index' ? (
     <Link href={'/'}>
-      <a>{route.breadcrumbName}</a>
+      <a style={{ color: 'white' }}>{route.breadcrumbName}</a>
     </Link>
   ) : (
-    <span>{route.breadcrumbName}</span>
+    <span style={{ color: 'white' }}>{route.breadcrumbName}</span>
   );
 }
 
@@ -55,7 +54,6 @@ function routesMaker(pathsplit: string[]) {
 
 const AppLayout = (props: React.PropsWithChildren<Props>) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { data: session } = useSession()
   const onChangeIsCollapsed = (isCollapsed: boolean) => {
     setIsCollapsed(isCollapsed);
   };
@@ -109,25 +107,32 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 16px 16px' }}>
-        <Breadcrumb
+      <Layout style={{ padding: '0 16px 16px', backgroundColor: '#0C1031', color: 'white' }}>
+        <BreadcrumbCustom
           style={{ margin: '16px 0' }}
           itemRender={itemRender}
           routes={routes}
         />
         <Content
-          className="site-layout-background"
+          //className="site-layout-background"
           style={{
             padding: 16,
             minHeight: 280,
-            backgroundColor: '#ffffff',
+            backgroundImage: 'url(/bgContent.png)',
+            // backgroundColor: "black",
+            overflow: 'hidden'
           }}
         >
           {props.children}
         </Content>
       </Layout>
-    </Layout>
+    </Layout >
   );
 };
-
+const BreadcrumbCustom = styled(Breadcrumb)`
+  
+  .ant-breadcrumb-separator {
+    color: #FFF;
+  }
+`
 export default withRouter(AppLayout);

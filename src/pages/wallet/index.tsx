@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div>
       <Tranfer>
-        <h2 >Tranfer</h2>
+        <h2 style={{ color: 'white' }} >Tranfer</h2>
 
         <Input.Group compact>
           <Select defaultValue="eth">

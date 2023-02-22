@@ -13,7 +13,6 @@ import {
   HomeOutlined
 } from '@ant-design/icons';
 
-// import './Layout.css';
 
 const { SubMenu, Item } = Menu;
 const { Sider, Content } = Layout;
@@ -73,11 +72,9 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         onCollapse={onChangeIsCollapsed}
       >
         <Link href="/overview" >
-          <a>
-            <div className="App-logo" />
-            <img style={{ marginTop: 5, marginBottom: 5 }} src='/dwallet.png'></img>
-
-            <div>d-Wallet</div>
+          <a style={{ color: 'Gray' }}>
+            <img src='/LecleLogoMini.png'></img>
+            <strong>d-Wallet</strong>
           </a>
         </Link>
         <Menu

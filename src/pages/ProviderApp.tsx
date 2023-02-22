@@ -38,7 +38,7 @@ export default function ProviderApp({ Component, pageProps }: AppProps) {
     return (
       <AppLayout>
         <Head>
-          <title>NextJs Antdesign Typescript</title>
+          <title>d-Wallet</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Component {...pageProps} />
@@ -49,7 +49,7 @@ export default function ProviderApp({ Component, pageProps }: AppProps) {
     return (
       <>
         <Head>
-          <title>NextJs Antdesign Typescript</title>
+          <title>d-Wallet</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Component {...pageProps} />

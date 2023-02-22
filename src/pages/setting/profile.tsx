@@ -6,11 +6,11 @@ import { useSession } from 'next-auth/react';
 const { Meta } = Card;
 import styled from 'styled-components';
 const Profile = styled.div`
-       display: inline-block;
-    /* text-align: center; */
-    margin-left: 25%;
+    display: inline-block;
+    /* margin-left: 25%; */
     border: 2px solid #ccc;
     height: 60vh;
+    width: 100%;
 `;
 export default function App() {
 
@@ -19,20 +19,19 @@ export default function App() {
   return (
     <Profile >
       <Card
-        style={{ width: '600px', textAlign: 'center' }}
-        cover={
-          <img
-            style={{ borderRadius: '50%', width: '200px', marginLeft: '200px', marginTop: '50px' }}
-            alt="image"
-            src={session.user.image}
-          />
-        }
+        style={{ width: '100%', textAlign: 'center' }}
       >
+        <img
+          style={{ borderRadius: '50%', width: '200px', marginTop: '30px', marginBottom: '30px' }}
+          alt="image"
+          src={session.user.image}
+        />
         <Meta
-          //avatar={<Avatar src={session.user.image} />}
+          //avatar={<Avatar src={session.user.image} />} 
           title={session.user.name}
           description={session.user.email}
         />
+
       </Card>
     </Profile >
   )

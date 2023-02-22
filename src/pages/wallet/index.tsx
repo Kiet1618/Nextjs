@@ -31,6 +31,7 @@ export default function App() {
 
           <Button style={{ width: 90 }} type="primary" >Send</Button>
         </Input.Group>
+
       </Tranfer>
     </div >
   )

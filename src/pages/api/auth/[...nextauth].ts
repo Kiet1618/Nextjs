@@ -1,8 +1,7 @@
 import { AuthSession } from '@app/common/types';
-import { Session } from 'inspector';
+import { getAddress } from '@app/utils/fetch-wallet';
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { useSession } from 'next-auth/react';
 export default NextAuth({
     providers: [
         GoogleProvider({
@@ -11,9 +10,18 @@ export default NextAuth({
         }),
     ],
     callbacks: {
+        async signIn(params) {
+            const data = await getAddress({ email: params.profile.email, verifier: "google" });
+            if (data.error) { 
+                return false 
+            }
+            if(!data.data) {
+                return false;
+            }
+            return true;
+        },
         async jwt({ token, user, account }) {
             // Persist the OAuth access_token to the token right after signin
-
             if (account) {
                 token.id_token = account.id_token;
             }

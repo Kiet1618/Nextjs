@@ -14,6 +14,7 @@ import styled from 'styled-components';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { getAddress } from '@app/utils/fetch-wallet';
 const Login = styled.div`
     //background-image: url(/bg3.png);
   //  background-color: green;
@@ -68,6 +69,7 @@ export default function App() {
         const result = await signIn("google", {
             callbackUrl: `${window.location.origin}/overview`,
             redirect: false,
+            
         })
     };
     //slider

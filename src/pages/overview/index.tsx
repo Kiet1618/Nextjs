@@ -5,10 +5,9 @@ import { useAppDispatch, useAppSelector } from '@app/store';
 import { useSession } from 'next-auth/react';
 export default function Overview() {
   const dispatch = useAppDispatch();
-  const { data: session } = useSession();
+  const { data: session } = useSession() as any;
 
   const state = useAppSelector(state => state.overview);
-  console.log();
   return (
     <div className='overview-page' style={{ textAlign: 'left' }}>
       <p>Count: {state.test.data}</p>
@@ -16,8 +15,8 @@ export default function Overview() {
         dispatch(testFunc({}));
       }} loading={state.test.loading}>Test Redux Func
       </Button>
-      <div><b>ID token:</b> {session.id_token || ""}</div>
-      <div> <b>email:</b> {session.user.email}</div>
+      <div><b>ID token:</b> {session?.id_token || ""}</div>
+      <div> <b>email:</b> {session?.user?.email}</div>
       <Empty>
       </Empty>
     </div>

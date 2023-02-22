@@ -42,9 +42,7 @@ const IpnutLogin = styled.div`
     padding-top: 10vh;
     height: 100vh;
     right: 0;
-    /* background-image: url('/backgroundInputLogin.png'); */
     background-color: rgb(17,23,74, 0.2);
-    /* background-color: black ; */
 `;
 
 

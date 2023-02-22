@@ -107,7 +107,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 16px 16px', backgroundColor: '#0C1031', color: 'white' }}>
+      <Layout style={{ padding: '0 16px 16px', backgroundColor: '#0C1031', color: 'white', width: '100%' }}>
         <BreadcrumbCustom
           style={{ margin: '16px 0' }}
           itemRender={itemRender}
@@ -116,9 +116,11 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         <Content
           //className="site-layout-background"
           style={{
+
             padding: 16,
             minHeight: 280,
             backgroundImage: 'url(/bgContent.png)',
+            backgroundSize: "100% 100%",
             overflow: 'hidden'
           }}
         >

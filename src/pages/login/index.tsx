@@ -91,7 +91,7 @@ export default function App() {
                 <ImgBackground src='/bg3.png'></ImgBackground>
             </Slider>
             <IpnutLogin>
-                <img src="/logoLogin.png" style={{ marginBottom: 120 }} alt="" />
+                <img src="/logoLogin.png" style={{ marginBottom: '15vh' }} alt="" />
                 <br></br>
                 <Button style={{ margin: 10, width: 50, height: 50, }} type="default" size='large' shape='circle' icon={<img style={{ width: 30, height: 30 }} src='/logoGoogle.png'></img>} onClick={handleSubmit}></Button>
                 <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<img style={{ width: 30, height: 30 }} src='/facebookLogo.png'></img>}></Button>

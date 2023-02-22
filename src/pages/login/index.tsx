@@ -99,7 +99,7 @@ export default function App() {
                 <Button style={{ margin: 10, width: 50, height: 50 }} type="default" size='large' shape='circle' icon={<img style={{ width: 25, height: 25 }} src='/iconMore.png'></img>} ></Button>
 
                 <Input.Group compact>
-                    <Input style={{ width: 300, marginTop: 10, borderRadius: 5, textAlign: 'left', paddingLeft: 10, height: 40, borderColor: '#66729A' }} /> <br></br>
+                    <Input placeholder="Email" style={{ width: 300, marginTop: 10, borderRadius: 5, textAlign: 'left', paddingLeft: 10, height: 40, borderColor: '#66729A' }} /> <br></br>
                     <ButtonOrigin style={{ width: 300, marginTop: 5, borderRadius: 5, height: 40 }} >Login with email</ButtonOrigin>
 
                 </Input.Group>

@@ -119,7 +119,6 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
             padding: 16,
             minHeight: 280,
             backgroundImage: 'url(/bgContent.png)',
-            // backgroundColor: "black",
             overflow: 'hidden'
           }}
         >

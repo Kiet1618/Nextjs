@@ -43,9 +43,7 @@ const IpnutLogin = styled.div`
     padding-top: 10vh;
     height: 100vh;
     right: 0;
-    /* background-image: url('/backgroundInputLogin.png'); */
     background-color: rgb(17,23,74, 0.2);
-    /* background-color: black ; */
 `;
 
 
@@ -69,7 +67,7 @@ export default function App() {
         const result = await signIn("google", {
             callbackUrl: `${window.location.origin}/overview`,
             redirect: false,
-            
+
         })
     };
     //slider
@@ -82,6 +80,10 @@ export default function App() {
         cssEase: 'linear',
         autoplay: true,
         autoplaySpeed: 5000,
+        button: false,
+        arrows: false,
+        prevArrow: false,
+        nextArrow: false,
     };
 
 

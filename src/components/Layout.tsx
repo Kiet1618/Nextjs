@@ -96,7 +96,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider style={{ textAlign: 'center' }}
+      <SiderCustom style={{ textAlign: 'center' }}
         collapsible
         collapsed={isCollapsed}
         onCollapse={onChangeIsCollapsed}
@@ -137,8 +137,8 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
             </Item>
           </SubMenu>
         </Menu>
-      </Sider>
-      <Layout style={{ padding: '0 16px 16px', backgroundColor: '#0C1031', color: 'white', width: '100%' }}>
+      </SiderCustom>
+      <Layout style={{ padding: '0 16px 16px', backgroundColor: '#232323', color: 'white', width: '100%' }}>
 
         <BreadcrumbCustom
           style={{ margin: '16px 0' }}
@@ -146,16 +146,16 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
           routes={routes}
         >
         </BreadcrumbCustom>
-        <Dropdown.Button style={{ margin: 12, marginLeft: '154vh', position: 'absolute', borderStyle: 'none', backgroundColor: '#0C1031' }} menu={menuProps} placement="bottomRight" icon={<img style={{ borderRadius: '50%' }} width={26} src={session ? session.user.image : ""} />}>
+        <ButtonInfo style={{ margin: 12, right: 0, position: 'absolute', width: '120px', borderStyle: 'none', backgroundColor: '#232323' }} menu={menuProps} placement="bottomRight" icon={<img style={{ borderRadius: '50%' }} width={26} src={session ? session.user.image : ""} />}>
           {session ? session.user.name : ""}
-        </Dropdown.Button>
+        </ButtonInfo>
         <Content
           //className="site-layout-background"
           style={{
 
             padding: 16,
             minHeight: 280,
-            backgroundImage: 'url(/bgContent.png)',
+            backgroundColor: "#292929",
             backgroundSize: "100% 100%",
             overflow: 'hidden'
           }}
@@ -177,8 +177,42 @@ const BreadcrumbCustom = styled(Breadcrumb)`
     float: left;
   }
   width: max-content;
-  
 `;
+const SiderCustom = styled(Sider)`
+    .ant-layout-sider-children{
+      background-color: #292929;
+    }
+    .ant-layout-sider-trigger{
+      background-color: #252525;
+    }
+    .ant-menu, .ant-menu-sub, .ant-menu-inline{
+      background-color: #292929 !important;
+
+    }
+    .ant-menu-item .ant-menu-item-only-child{
+      background-color: #292929;
+    }
+    .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background-color: #505050;
+    }
+   
+`;
+const ButtonInfo = styled(Dropdown.Button)`
+    .ant-btn{
+      background: #232323;
+      border-style:none;
+    }
+    span{
+      color: white;
+    }
+    .ant-dropdown .ant-dropdown-placement-bottomRight .ant-dropdown-menu .ant-dropdown-menu-root .ant-dropdown-menu-vertical .ant-dropdown-menu-light{
+      background-color: #232323 ;
+    }
+    .ant-dropdown-menu-item .ant-dropdown-menu-item-active{
+      background-color: #232323;
+    }
+`;
+
 export default withRouter(AppLayout);
 {/* <p style={{ margin: 15, marginRight: '60px', right: 0, position: 'absolute' }} >{session ? session.user.name : ""}</p>
 <a onClick={() => console.log('a')} style={{ right: 0, position: 'absolute' }}> <img style={{ borderRadius: '50%', margin: 10, marginRight: '16px', right: 0, position: 'absolute' }} width={30} src={session ? session.user.image : ""} /></a> */}

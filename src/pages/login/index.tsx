@@ -23,7 +23,7 @@ const Login = styled.div`
 `;
 const ButtonOrigin = styled.button`
     border-radius: 6px;
-    background-color: #292929;
+    background-color: #505050;
     width: 300px;
     height: 50px;
     color: white;

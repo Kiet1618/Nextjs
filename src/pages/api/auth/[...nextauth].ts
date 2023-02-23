@@ -10,16 +10,16 @@ export default NextAuth({
         }),
     ],
     callbacks: {
-        async signIn(params) {
-            const data = await getAddress({ email: params.profile.email, verifier: "google" });
-            if (data.error) { 
-                return false 
-            }
-            if(!data.data) {
-                return false;
-            }
-            return true;
-        },
+        // async signIn(params) {
+        //     const data = await getAddress({ email: params.profile.email, verifier: "google" });
+        //     if (data.error) { 
+        //         return false 
+        //     }
+        //     if(!data.data) {
+        //         return false;
+        //     }
+        //     return true;
+        // },
         async jwt({ token, user, account }) {
             // Persist the OAuth access_token to the token right after signin
             if (account) {

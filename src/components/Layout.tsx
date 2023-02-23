@@ -2,17 +2,46 @@ import React, { useState, FunctionComponent } from 'react';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import styled from "styled-components"
 import Link from 'next/link';
-import { withRouter, NextRouter } from 'next/router';
+import router, { withRouter, NextRouter } from 'next/router';
 import { WithRouterProps } from 'next/dist/client/with-router';
 import { useSession, signIn, signOut } from "next-auth/react"
-
+import { useRouter } from 'next/router';
 import {
   SettingOutlined,
   WalletOutlined,
-  HomeOutlined
+  HomeOutlined,
+  LogoutOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 
+import type { MenuProps } from 'antd';
+import { Dropdown, message, Space, Tooltip } from 'antd';
 
+
+
+const handleMenuClick: MenuProps['onClick'] = (e) => {
+  if (e.key == 'logout') {
+    signOut()
+  }
+  else router.push('/' + e.key);
+};
+const items: MenuProps["items"] = [
+  {
+    label: 'Profile',
+    key: 'setting/profile',
+    icon: <UserOutlined />,
+  },
+  {
+    label: 'Log Out',
+    key: 'logout',
+    icon: <LogoutOutlined />,
+  },
+];
+
+const menuProps = {
+  items,
+  onClick: handleMenuClick,
+};
 const { SubMenu, Item } = Menu;
 const { Sider, Content } = Layout;
 
@@ -53,6 +82,8 @@ function routesMaker(pathsplit: string[]) {
 }
 
 const AppLayout = (props: React.PropsWithChildren<Props>) => {
+  const { data: session } = useSession();
+
   const [isCollapsed, setIsCollapsed] = useState(false);
   const onChangeIsCollapsed = (isCollapsed: boolean) => {
     setIsCollapsed(isCollapsed);
@@ -61,6 +92,7 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
   const pathname = props.router.pathname;
   const pathsplit: string[] = pathname.split('/');
   const routes = routesMaker(pathsplit);
+  const router = useRouter();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -72,7 +104,6 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         <Link href="/overview" >
           <a>
             <img src='/LecleLogoMini.png'></img>
-
           </a>
         </Link>
         <Menu
@@ -108,11 +139,16 @@ const AppLayout = (props: React.PropsWithChildren<Props>) => {
         </Menu>
       </Sider>
       <Layout style={{ padding: '0 16px 16px', backgroundColor: '#0C1031', color: 'white', width: '100%' }}>
+
         <BreadcrumbCustom
           style={{ margin: '16px 0' }}
           itemRender={itemRender}
           routes={routes}
-        />
+        >
+        </BreadcrumbCustom>
+        <Dropdown.Button style={{ margin: 12, marginLeft: '154vh', position: 'absolute', borderStyle: 'none', backgroundColor: '#0C1031' }} menu={menuProps} placement="bottomRight" icon={<img style={{ borderRadius: '50%' }} width={26} src={session ? session.user.image : ""} />}>
+          {session ? session.user.name : ""}
+        </Dropdown.Button>
         <Content
           //className="site-layout-background"
           style={{
@@ -135,5 +171,15 @@ const BreadcrumbCustom = styled(Breadcrumb)`
   .ant-breadcrumb-separator {
     color: #FFF;
   }
-`
+  display: inline-block;
+  div{
+    display: inline-block;
+    float: left;
+  }
+  width: max-content;
+  
+`;
 export default withRouter(AppLayout);
+{/* <p style={{ margin: 15, marginRight: '60px', right: 0, position: 'absolute' }} >{session ? session.user.name : ""}</p>
+<a onClick={() => console.log('a')} style={{ right: 0, position: 'absolute' }}> <img style={{ borderRadius: '50%', margin: 10, marginRight: '16px', right: 0, position: 'absolute' }} width={30} src={session ? session.user.image : ""} /></a> */}
+

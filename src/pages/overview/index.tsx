@@ -6,18 +6,19 @@ import { useSession } from 'next-auth/react';
 import styled from 'styled-components';
 
 const CardBalance = styled.div`
-      width: 400px;
-      border: solid 1px white;
+      width: 500px;
+      border: solid 1px rgb(102,114,154, 0.8);
       margin: 40px;
       border-radius: 5px;
       height: 200px;
       padding: 20px;
+      display: inline-block;
 `;
 const Output = styled.output`
       display: inline-block;
-      width: 200px;
+      width: 300px;
       height: 30px;
-      border: solid 1px white;
+      border: solid 1px rgb(102,114,154, 0.8);
       border-radius: 5px;
       margin-top: 20px;
       padding: 3px;

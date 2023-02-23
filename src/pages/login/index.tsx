@@ -16,24 +16,19 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { getAddress } from '@app/utils/fetch-wallet';
 const Login = styled.div`
-    //background-image: url(/bg3.png);
-  //  background-color: green;
-    //background-repeat: no-repeat;
-    //background-size: cover;
-    //background-position: center;
+
     height: 100vh;
-    //width: 100%;
     overflow: hidden;
     
 `;
 const ButtonOrigin = styled.button`
     border-radius: 6px;
-    background-color: rgb(24,101,172);
+    background-color: #292929;
     width: 300px;
     height: 50px;
     color: white;
     cursor: pointer;
-    border-color: rgb(102,114,154);
+    
     `;
 const IpnutLogin = styled.div`
     position: absolute;
@@ -43,17 +38,18 @@ const IpnutLogin = styled.div`
     padding-top: 10vh;
     height: 100vh;
     right: 0;
-    background-color: rgb(17,23,74, 0.2);
+    /* background-color: rgb(17,23,74, 0.2); */
+    /* background-color: rgb(30,30,30, 0.2); */
 `;
 
 
 const ImgBackground = styled.img`
-        -moz-transform: scaleX(-1);
+        /* -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
         filter: FlipH;
-        -ms-filter: "FlipH";
+        -ms-filter: "FlipH"; */
         min-height: 100vh;
         object-fit: cover;`;
 
@@ -90,9 +86,9 @@ export default function App() {
     return (
         <Login>
             <Slider {...settings}>
-                <ImgBackground src='/bg1.png'></ImgBackground>
-                <ImgBackground src='/bg2.png'></ImgBackground>
-                <ImgBackground src='/bg3.png'></ImgBackground>
+                <ImgBackground src='/background1.jpg'></ImgBackground>
+                <ImgBackground src='/background2.jpg'></ImgBackground>
+                <ImgBackground src='/background3.jpg'></ImgBackground>
             </Slider>
             <IpnutLogin>
                 <img src="/logoLogin.png" style={{ marginBottom: 120 }} alt="" />

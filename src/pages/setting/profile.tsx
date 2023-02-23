@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Skeleton, Empty, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { useSession } from 'next-auth/react';
+import { signIn, signOut } from "next-auth/react"
 
 const { Meta } = Card;
 import styled from 'styled-components';
 const Profile = styled.div`
     display: inline-block;
     /* margin-left: 25%; */
-    border: 2px solid #ccc;
-    height: 60vh;
-    width: 100%;
+    border: solid 1px rgb(102,114,154, 0.8);
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    margin: 40px;
 `;
 export default function App() {
 
@@ -18,21 +21,16 @@ export default function App() {
 
   return (
     <Profile >
-      <Card
-        style={{ width: '100%', textAlign: 'center' }}
-      >
-        <img
-          style={{ borderRadius: '50%', width: '200px', marginTop: '30px', marginBottom: '30px' }}
-          alt="image"
-          src={session.user.image}
-        />
-        <Meta
-          //avatar={<Avatar src={session.user.image} />} 
-          title={session.user.name}
-          description={session.user.email}
-        />
 
-      </Card>
+      <img
+        style={{ borderRadius: '50%', width: '200px', marginTop: '30px', marginBottom: '30px' }}
+        alt="image"
+        src={session.user.image}
+      />
+      <h2 style={{ color: 'white' }}>{session.user.name}</h2>
+      <h3 style={{ color: 'white' }}>{session.user.email}</h3>
+
+
     </Profile >
   )
 }

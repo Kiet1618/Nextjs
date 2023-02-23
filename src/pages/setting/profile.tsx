@@ -10,8 +10,6 @@ const Profile = styled.div`
     display: inline-block;
     /* margin-left: 25%; */
     border: solid 1px rgb(100,100,100);
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
     height: 500px;
     width: 500px;
     text-align: center;

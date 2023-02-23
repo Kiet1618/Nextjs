@@ -16,7 +16,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { getAddress } from '@app/utils/fetch-wallet';
 const Login = styled.div`
-
     height: 100vh;
     overflow: hidden;
     

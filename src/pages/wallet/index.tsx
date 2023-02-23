@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const { Option } = Select;
 const Tranfer = styled.form`
   margin: 40px;
-  border: solid 1px rgb(102,114,154, 0.8);
+  border: solid 1px rgb(100,100,100);
   width: 600px;
   height: 530px;
   display: inline-block;
@@ -21,7 +21,7 @@ const Tranfer = styled.form`
 `;
 const CardBalance = styled.div`
       width: 500px;
-      border: solid 1px rgb(102,114,154, 0.8);
+      border: solid 1px rgb(100,100,100);
       margin: 40px;
       border-radius: 5px;
       height: 200px;
@@ -45,8 +45,6 @@ export default function App() {
     <div>
       <Tranfer>
         <h2 style={{ color: 'white' }} >Tranfer</h2>
-
-
       </Tranfer>
       <CardBalance>
         <h1 style={{ color: 'white' }}>Account Balance</h1>

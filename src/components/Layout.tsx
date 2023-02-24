@@ -187,10 +187,6 @@ const SiderCustom = styled(Sider)`
     }
     .ant-menu, .ant-menu-sub, .ant-menu-inline{
       background-color: #292929 !important;
-
-    }
-    .ant-menu-item .ant-menu-item-only-child{
-      background-color: #292929;
     }
     .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
       background-color: #505050;
@@ -205,15 +201,11 @@ const ButtonInfo = styled(Dropdown.Button)`
     span{
       color: white;
     }
-    .ant-dropdown .ant-dropdown-placement-bottomRight .ant-dropdown-menu .ant-dropdown-menu-root .ant-dropdown-menu-vertical .ant-dropdown-menu-light{
-      background-color: #232323 ;
+    .ant-dropdown-menu .ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover, .ant-dropdown-menu-item.ant-dropdown-menu-item-active, .ant-dropdown-menu-item.ant-dropdown-menu-submenu-title-active, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-item-active, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-submenu-title-active {
+      background-color: #232323 !important;
     }
-    .ant-dropdown-menu-item .ant-dropdown-menu-item-active{
-      background-color: #232323;
-    }
+   
+
 `;
 
 export default withRouter(AppLayout);
-{/* <p style={{ margin: 15, marginRight: '60px', right: 0, position: 'absolute' }} >{session ? session.user.name : ""}</p>
-<a onClick={() => console.log('a')} style={{ right: 0, position: 'absolute' }}> <img style={{ borderRadius: '50%', margin: 10, marginRight: '16px', right: 0, position: 'absolute' }} width={30} src={session ? session.user.image : ""} /></a> */}
-

@@ -15,7 +15,7 @@ export default function Overview() {
       margin: 40px;
       border-radius: 5px;
       height: 200px;
-      padding: 20px;
+      padding: 30px;
       display: inline-block;
 `;
 
@@ -27,6 +27,7 @@ export default function Overview() {
     float: left;
     margin-top: 20px;;
 `;
+
   const state = useAppSelector(state => state.overview);
   return (
     <div style={{ textAlign: 'left', color: 'white' }}>

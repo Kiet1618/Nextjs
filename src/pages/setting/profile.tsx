@@ -8,12 +8,12 @@ const { Meta } = Card;
 import styled from 'styled-components';
 const Profile = styled.div`
     display: inline-block;
-    /* margin-left: 25%; */
     border: solid 1px rgb(100,100,100);
     height: 500px;
     width: 500px;
     text-align: center;
     margin: 40px;
+    border-radius: 5px;
 `;
 export default function App() {
 
